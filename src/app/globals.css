@@ -288,6 +288,173 @@
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
   }
+
+  /* Lightning effects for logo */
+  .animate-lightning-flash {
+    animation: lightning-flash 3s ease-in-out;
+  }
+
+  .animate-lightning-bolt {
+    animation: lightning-bolt-move 2.5s ease-in-out;
+  }
+
+  .animate-lightning-appear {
+    animation: lightning-appear 2s ease-in-out;
+  }
+
+  @keyframes lightning-flash {
+    0% {
+      opacity: 0.8;
+      box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+    15% {
+      opacity: 1;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+    30% {
+      opacity: 0.9;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+    }
+    45% {
+      opacity: 1;
+      box-shadow: 0 0 25px rgba(59, 130, 246, 1);
+    }
+    60% {
+      opacity: 0.8;
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+    }
+    100% {
+      opacity: 0.8;
+      box-shadow: 0 0 0px rgba(59, 130, 246, 0);
+    }
+  }
+
+  @keyframes lightning-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0.5) translateX(10px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) translateX(-2px);
+    }
+    70% {
+      opacity: 0.8;
+      transform: scale(0.9) translateX(1px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1) translateX(0px);
+    }
+  }
+
+  @keyframes lightning-bolt-move {
+    0% {
+      transform: translateY(-50%) translateX(20px) scale(0);
+    }
+    20% {
+      transform: translateY(-50%) translateX(5px) scale(1.2);
+    }
+    40% {
+      transform: translateY(-50%) translateX(-2px) scale(1);
+    }
+    60% {
+      transform: translateY(-50%) translateX(1px) scale(0.9);
+    }
+    100% {
+      transform: translateY(-50%) translateX(0px) scale(0);
+    }
+  }
+
+  /* Lightning ring effects for logo outer border */
+  .animate-lightning-ring {
+    animation: lightning-ring 3s ease-in-out;
+  }
+
+  .animate-lightning-ring-reverse {
+    animation: lightning-ring-reverse 3s ease-in-out 0.1s;
+  }
+
+  @keyframes lightning-ring {
+    0% {
+      opacity: 0;
+      background: conic-gradient(from 0deg, transparent, transparent, transparent, transparent);
+      transform: rotate(0deg);
+    }
+    10% {
+      opacity: 0.8;
+      background: conic-gradient(from 0deg, #3b82f6, transparent, transparent, transparent);
+      transform: rotate(0deg);
+    }
+    25% {
+      opacity: 1;
+      background: conic-gradient(from 90deg, transparent, #3b82f6, transparent, transparent);
+      transform: rotate(90deg);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+    50% {
+      opacity: 0.9;
+      background: conic-gradient(from 180deg, transparent, transparent, #3b82f6, transparent);
+      transform: rotate(180deg);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+    75% {
+      opacity: 1;
+      background: conic-gradient(from 270deg, transparent, transparent, transparent, #3b82f6);
+      transform: rotate(270deg);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+    }
+    90% {
+      opacity: 0.6;
+      background: conic-gradient(from 360deg, #3b82f6, transparent, transparent, transparent);
+      transform: rotate(360deg);
+    }
+    100% {
+      opacity: 0;
+      background: conic-gradient(from 360deg, transparent, transparent, transparent, transparent);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes lightning-ring-reverse {
+    0% {
+      opacity: 0;
+      background: conic-gradient(from 360deg, transparent, transparent, transparent, transparent);
+      transform: rotate(360deg);
+    }
+    10% {
+      opacity: 0.6;
+      background: conic-gradient(from 360deg, #60a5fa, transparent, transparent, transparent);
+      transform: rotate(360deg);
+    }
+    25% {
+      opacity: 0.8;
+      background: conic-gradient(from 270deg, transparent, #60a5fa, transparent, transparent);
+      transform: rotate(270deg);
+      box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+    }
+    50% {
+      opacity: 0.7;
+      background: conic-gradient(from 180deg, transparent, transparent, #60a5fa, transparent);
+      transform: rotate(180deg);
+    }
+    75% {
+      opacity: 0.9;
+      background: conic-gradient(from 90deg, transparent, transparent, transparent, #60a5fa);
+      transform: rotate(90deg);
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+    }
+    90% {
+      opacity: 0.4;
+      background: conic-gradient(from 0deg, #60a5fa, transparent, transparent, transparent);
+      transform: rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      background: conic-gradient(from 0deg, transparent, transparent, transparent, transparent);
+      transform: rotate(0deg);
+    }
+  }
 }
 
 @layer utilities {

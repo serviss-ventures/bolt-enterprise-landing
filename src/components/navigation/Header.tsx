@@ -68,16 +68,36 @@ const BoltLogo = () => {
   return (
     <Link href="/" className="flex items-center group">
       <div className="relative flex items-center">
+        {/* OUTER LIGHTNING RING - Travels around logo on load */}
+        <div className="absolute -inset-3 rounded-xl border-2 border-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-0 animate-lightning-ring"></div>
+        <div className="absolute -inset-3 rounded-xl border-2 border-transparent bg-gradient-to-l from-blue-600 via-blue-500 to-blue-400 opacity-0 animate-lightning-ring-reverse"></div>
+        
         {/* Logo text with improved sizing */}
-        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white tracking-tight group-hover:text-primary-400 transition-colors">
+        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white tracking-tight group-hover:text-primary-400 transition-colors relative z-10">
           bolt
         </span>
-        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white/60 tracking-tight">
+        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white/60 tracking-tight relative z-10">
           .new
         </span>
         
-        {/* SICK LIGHTNING ACCENT LINE */}
-        <div className="absolute -right-3 xl:-right-4 2xl:-right-5 top-1/2 w-6 xl:w-8 2xl:w-10 h-0.5 xl:h-1 2xl:h-1 bg-gradient-to-r from-accent-blue via-accent-blue to-transparent opacity-80 group-hover:opacity-100 group-hover:shadow-[0_0_8px_#3b82f6] transition-all duration-300"></div>
+        {/* LIGHTNING ACCENT LINE - Shows on load + hover */}
+        <div className="absolute -right-3 xl:-right-4 2xl:-right-5 top-1/2 w-6 xl:w-8 2xl:w-10 h-0.5 xl:h-1 2xl:h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-transparent opacity-80 group-hover:opacity-100 group-hover:shadow-[0_0_12px_#3b82f6] transition-all duration-300 animate-lightning-flash z-10"></div>
+        
+        {/* LIGHTNING BOLT ICON - Appears on load */}
+        <div className="absolute -right-1 xl:-right-2 2xl:-right-3 top-1/2 transform -translate-y-1/2 animate-lightning-bolt z-10">
+          <svg 
+            width="12" 
+            height="16" 
+            viewBox="0 0 12 16" 
+            className="text-blue-400 opacity-0 animate-lightning-appear xl:w-4 xl:h-5 2xl:w-5 2xl:h-6"
+          >
+            <path 
+              d="M7 0L2 8h3l-2 8 5-8H5l2-8z" 
+              fill="currentColor"
+              className="drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]"
+            />
+          </svg>
+        </div>
       </div>
     </Link>
   )
@@ -120,19 +140,44 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 2xl:space-x-12">
-            <div className="relative group">
-              <button className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors text-base xl:text-lg 2xl:text-xl">
-                <span>Solutions</span>
-                <ChevronDown className="w-4 h-4 xl:w-5 xl:h-5" />
-              </button>
-            </div>
-            
-            <div className="relative group">
-              <button className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors text-base xl:text-lg 2xl:text-xl">
-                <span>Resources</span>
-                <ChevronDown className="w-4 h-4 xl:w-5 xl:h-5" />
-              </button>
-            </div>
+            {navigation.map((section) => (
+              <div key={section.title} className="relative group">
+                <button 
+                  className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors text-base xl:text-lg 2xl:text-xl"
+                  onMouseEnter={() => setActiveDropdown(section.title)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <span>{section.title}</span>
+                  <ChevronDown className="w-4 h-4 xl:w-5 xl:h-5" />
+                </button>
+                
+                {/* Dropdown Menu */}
+                {activeDropdown === section.title && (
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-64 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-3 z-50"
+                    onMouseEnter={() => setActiveDropdown(section.title)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <div className="space-y-1">
+                      {section.items.map((item) => (
+                        <Link
+                          key={item.title}
+                          href={item.href}
+                          className="block p-2 rounded-lg hover:bg-white/10 transition-colors group"
+                        >
+                          <div className="font-medium text-white text-sm group-hover:text-primary-400 transition-colors">
+                            {item.title}
+                          </div>
+                          <div className="text-xs text-white/50 mt-0.5 leading-tight">
+                            {item.description}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
             
             <Link href="/pricing" className="text-white/80 hover:text-white transition-colors text-base xl:text-lg 2xl:text-xl px-2">
               Pricing
