@@ -1,5 +1,7 @@
+import Header from '@/components/navigation/Header'
+import Footer from '@/components/navigation/Footer'
 import Link from 'next/link'
-import { ArrowLeft, Calendar, Users, Zap, Shield, CheckCircle, Play, Clock, Globe } from 'lucide-react'
+import { Calendar, Users, Zap, Shield, CheckCircle, Play, Clock, Globe } from 'lucide-react'
 
 const benefits = [
   {
@@ -34,24 +36,11 @@ const stats = [
 export default function DemoPage() {
   return (
     <main className="min-h-screen bg-black">
-      {/* Header */}
-      <header className="border-b border-white/10">
-        <div className="container-max section-padding py-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center text-white/70 hover:text-white transition-colors group">
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Back to home
-            </Link>
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl font-semibold text-white tracking-tight">bolt</span>
-              <span className="text-2xl font-semibold text-white/60 tracking-tight">.new</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Consistent Header with logo and lightning accent */}
+      <Header />
 
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 relative overflow-hidden">
+      {/* Hero Section with proper top padding */}
+      <section className="py-16 lg:py-24 pt-32 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Floating VS Code Window */}
@@ -340,6 +329,9 @@ export default function DemoPage() {
           </div>
         </div>
       </section>
+      
+      {/* Footer for consistency */}
+      <Footer />
     </main>
   )
 } 

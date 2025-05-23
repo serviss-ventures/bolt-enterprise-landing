@@ -1,5 +1,7 @@
+import Header from '@/components/navigation/Header'
+import Footer from '@/components/navigation/Footer'
 import Link from 'next/link'
-import { ArrowLeft, Code, Slack, Github, Terminal, Zap, Shield, Globe, ArrowRight, Bot, Users, Layers } from 'lucide-react'
+import { Code, Slack, Github, Terminal, Zap, Shield, Globe, ArrowRight, Bot, Users, Layers } from 'lucide-react'
 
 const integrationMethods = [
   {
@@ -56,24 +58,11 @@ const useCases = [
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-black">
-      {/* Header */}
-      <header className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="inline-flex items-center text-white/70 hover:text-white transition-colors group">
-              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Back to home
-            </Link>
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl font-semibold text-white tracking-tight">bolt</span>
-              <span className="text-2xl font-semibold text-white/60 tracking-tight">.new</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      {/* Consistent Header with logo and lightning accent */}
+      <Header />
 
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24">
+      {/* Hero Section with proper top padding */}
+      <section className="py-16 lg:py-24 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -270,6 +259,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      
+      {/* Footer for consistency */}
+      <Footer />
     </main>
   )
 } 
