@@ -1,7 +1,74 @@
 import Link from 'next/link'
 import { ArrowRight, Play } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 export default function Hero() {
+  // Typing animation state
+  const [typedText, setTypedText] = useState('')
+  const [isTyping, setIsTyping] = useState(true)
+  const [showCursor, setShowCursor] = useState(true)
+  
+  const fullText = "Create an inventory dashboard with charts and dark mode"
+  
+  useEffect(() => {
+    if (typedText.length < fullText.length) {
+      // Variable typing speed for more natural feel
+      const char = fullText[typedText.length]
+      const baseDelay = 60
+      const extraDelay = char === ' ' ? 100 : char === ',' ? 200 : 0
+      
+      const timeout = setTimeout(() => {
+        setTypedText(fullText.slice(0, typedText.length + 1))
+      }, baseDelay + extraDelay + Math.random() * 40) // Add some randomness
+      
+      return () => clearTimeout(timeout)
+    } else {
+      // Finished typing, pause then continue cursor blinking
+      setTimeout(() => {
+        setIsTyping(false)
+      }, 500)
+    }
+  }, [typedText, fullText])
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor(prev => !prev)
+    }, isTyping ? 400 : 600) // Faster blink while typing
+    
+    return () => clearInterval(cursorInterval)
+  }, [isTyping])
+
+  // Function to render text with colors
+  const renderColoredText = (text: string) => {
+    const words = text.split(' ')
+    const result = []
+    
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i]
+      let className = "text-white/90"
+      
+      // Color coding for different parts
+      if (word === "Create") className = "text-green-400"
+      else if (word === "inventory" || word === "dashboard") className = "text-blue-400"
+      else if (word === "charts") className = "text-purple-400"
+      else if (word === "dark" || word === "mode") className = "text-yellow-400"
+      
+      result.push(
+        <span key={i} className={className}>
+          {word}
+        </span>
+      )
+      
+      // Add space between words (except for the last word)
+      if (i < words.length - 1) {
+        result.push(' ')
+      }
+    }
+    
+    return result
+  }
+
   return (
     <section className="relative pt-20 lg:pt-28 pb-16 lg:pb-24 overflow-hidden">
       {/* Clean minimal background */}
@@ -135,12 +202,8 @@ export default function Hero() {
                     {/* Clean prompt content */}
                     <div className="p-4">
                       <div className="text-white/90 text-base leading-relaxed">
-                        <span className="text-green-400">Create</span> an{" "}
-                        <span className="text-blue-400">inventory dashboard</span>{" "}
-                        with{" "}
-                        <span className="text-purple-400">charts</span> and{" "}
-                        <span className="text-yellow-400">dark mode</span>
-                        <span className="animate-pulse text-white ml-1">|</span>
+                        {renderColoredText(typedText)}
+                        <span className={`text-white ml-1 transition-opacity duration-100 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
                       </div>
                     </div>
                   </div>
