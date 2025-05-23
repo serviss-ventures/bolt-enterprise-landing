@@ -14,12 +14,13 @@ export default function Hero() {
           <div className="text-center lg:text-left">
             {/* StackBlitz Badge - Back at the top where it was dope! */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm mb-8 backdrop-blur-sm hover:scale-105 transition-all duration-300 group relative overflow-hidden">
-              {/* OUTER LIGHTNING RINGS - Travel around StackBlitz badge on page load */}
-              <div className="absolute -inset-2 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-0 animate-lightning-ring"></div>
-              <div className="absolute -inset-2 rounded-full border-2 border-transparent bg-gradient-to-l from-blue-600 via-blue-500 to-blue-400 opacity-0 animate-lightning-ring-reverse"></div>
+              {/* SUBTLE OUTER GLOW - Just a gentle effect around the border */}
+              <div className="absolute -inset-px rounded-full border border-blue-400/30 opacity-0 animate-subtle-border-glow"></div>
               
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2 relative z-10"></div>
-              <span className="relative z-10">StackBlitz WebContainer Powered</span>
+              <span className="relative z-10 mr-2">⚡</span>
+              <span className="relative z-10 font-medium">
+                StackBlitz <span className="text-blue-400">WebContainer</span> Powered
+              </span>
             </div>
 
             {/* Main Headline - Clean Typography with proper spacing from logo */}
