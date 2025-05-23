@@ -68,23 +68,19 @@ const BoltLogo = () => {
   return (
     <Link href="/" className="flex items-center group">
       <div className="relative flex items-center">
-        {/* OUTER LIGHTNING RING - Travels around logo on load */}
-        <div className="absolute -inset-3 rounded-xl border-2 border-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-0 animate-lightning-ring"></div>
-        <div className="absolute -inset-3 rounded-xl border-2 border-transparent bg-gradient-to-l from-blue-600 via-blue-500 to-blue-400 opacity-0 animate-lightning-ring-reverse"></div>
-        
         {/* Logo text with improved sizing */}
-        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white tracking-tight group-hover:text-primary-400 transition-colors relative z-10">
+        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white tracking-tight group-hover:text-primary-400 transition-colors">
           bolt
         </span>
-        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white/60 tracking-tight relative z-10">
+        <span className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold text-white/60 tracking-tight">
           .new
         </span>
         
         {/* LIGHTNING ACCENT LINE - Shows on load + hover */}
-        <div className="absolute -right-3 xl:-right-4 2xl:-right-5 top-1/2 w-6 xl:w-8 2xl:w-10 h-0.5 xl:h-1 2xl:h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-transparent opacity-80 group-hover:opacity-100 group-hover:shadow-[0_0_12px_#3b82f6] transition-all duration-300 animate-lightning-flash z-10"></div>
+        <div className="absolute -right-3 xl:-right-4 2xl:-right-5 top-1/2 w-6 xl:w-8 2xl:w-10 h-0.5 xl:h-1 2xl:h-1 bg-gradient-to-r from-blue-400 via-blue-500 to-transparent opacity-80 group-hover:opacity-100 group-hover:shadow-[0_0_12px_#3b82f6] transition-all duration-300 animate-lightning-flash"></div>
         
         {/* LIGHTNING BOLT ICON - Appears on load */}
-        <div className="absolute -right-1 xl:-right-2 2xl:-right-3 top-1/2 transform -translate-y-1/2 animate-lightning-bolt z-10">
+        <div className="absolute -right-1 xl:-right-2 2xl:-right-3 top-1/2 transform -translate-y-1/2 animate-lightning-bolt">
           <svg 
             width="12" 
             height="16" 
