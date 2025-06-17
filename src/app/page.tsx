@@ -27,9 +27,6 @@ const Header = () => {
               Enterprise
             </span>
           </div>
-          <div className="text-sm text-gray-400">
-            Limited Early Access
-          </div>
         </div>
       </div>
     </header>
@@ -44,7 +41,6 @@ const HeroWithForm = () => {
     teamSize: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [spotsLeft] = useState(47) // Creates urgency
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -68,14 +64,8 @@ const HeroWithForm = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            {/* Trust Signal */}
-            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm mb-6">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
-              {spotsLeft} early access spots remaining
-            </div>
-
             {/* Headline with clear value prop */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight pt-10">
               Your AI dev team that
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 block">
                 ships 10× faster
@@ -127,10 +117,10 @@ const HeroWithForm = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 shadow-2xl">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Get Early Access
+                  Get Started with Bolt Enterprise
                 </h3>
                 <p className="text-gray-400">
-                  Be among the first to transform your development workflow
+                  Fill out the form to get in touch with our enterprise team.
                 </p>
               </div>
 
@@ -190,7 +180,7 @@ const HeroWithForm = () => {
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   ) : (
                     <>
-                      Claim Your Spot
+                      Contact Sales
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
@@ -467,22 +457,22 @@ const Stats = () => {
 const Testimonials = () => {
   const testimonials = [
     {
-      quote: "Bolt transformed our development process. What used to take months now takes hours. Our developers can finally focus on innovation instead of boilerplate.",
-      author: "Sarah Chen",
-      role: "VP Engineering, Fortune 500 FinTech",
-      company: "Wells Fargo"
+      quote: "StackBlitz unlocks a true one-click startup experience with the full stack running in the browser—it's a game-changer.",
+      author: "Ilya Grigorik",
+      role: "Principal Engineer",
+      company: "Shopify"
     },
     {
-      quote: "The security and compliance features were game-changers for us. We deployed Bolt across 500+ developers without a single security review delay.",
-      author: "Marcus Rodriguez",
-      role: "CTO, Global Healthcare Leader",
-      company: "Johnson & Johnson"
+      quote: "Being able to instantly open and share environments has significantly reduced our team's support burden for bug reproductions and enabled rapid innovation.",
+      author: "Stephen Fluin",
+      role: "Developer Relations Lead",
+      company: "Google"
     },
     {
-      quote: "ROI was immediate. We shipped more features in Q1 with Bolt than we did all of last year. It's not just faster—it's better code.",
-      author: "Emily Watson",
-      role: "Director of Engineering, Tech Giant",
-      company: "Microsoft"
+      quote: "Claude 3.5 Sonnet is the enabling technology that made this product possible, period.",
+      author: "Eric Simons",
+      role: "CEO & Co-founder",
+      company: "StackBlitz"
     }
   ]
 
@@ -506,7 +496,7 @@ const Testimonials = () => {
                   <span key={i} className="text-yellow-400">★</span>
                 ))}
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed">
+              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
                 "{testimonial.quote}"
               </p>
               <div className="border-t border-gray-800 pt-6">
@@ -584,18 +574,14 @@ const FinalCTA = () => {
     <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
-        <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 border border-white/30 text-white text-sm mb-6">
-          <Timer className="w-4 h-4 mr-2" />
-          Limited time: Get 3 months free
-        </div>
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
           Ready to 10x your development speed?
         </h2>
         <p className="text-xl text-white/90 mb-8">
-          Join the enterprises shipping faster with Bolt. Only 47 early access spots remaining.
+          Join the enterprises shipping faster with Bolt.
         </p>
         <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-          Claim Your Spot Now
+          Get Started
           <ArrowRight className="w-5 h-5 ml-2" />
         </a>
         <p className="text-sm text-white/70 mt-6">
