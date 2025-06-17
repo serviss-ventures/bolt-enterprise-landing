@@ -59,10 +59,10 @@ const HeroWithForm = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 pb-20">
       {/* Premium gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-purple-950">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(168,85,247,0.15),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.1),transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIxMjEyMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-black to-gray-900">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzFhMWExYSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
@@ -70,7 +70,7 @@ const HeroWithForm = () => {
           {/* Left Content */}
           <div>
             {/* Trust Badge */}
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-6">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm mb-6">
               <Activity className="w-4 h-4 mr-2" />
               Trusted by 10,000+ product teams worldwide
             </div>
@@ -78,7 +78,7 @@ const HeroWithForm = () => {
             {/* Headline with clear value prop */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               Turn your ideas into
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-600 block">
                 working apps instantly
               </span>
             </h1>
@@ -112,7 +112,7 @@ const HeroWithForm = () => {
             <div className="flex items-center space-x-6">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 border-2 border-black flex items-center justify-center text-xs text-white font-semibold">
+                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 border-2 border-gray-900 flex items-center justify-center text-xs text-gray-300">
                     {i === 1 && 'SJ'}
                     {i === 2 && 'MK'}
                     {i === 3 && 'AR'}
@@ -149,7 +149,7 @@ const HeroWithForm = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -163,7 +163,7 @@ const HeroWithForm = () => {
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Your company name"
                   />
                 </div>
@@ -176,7 +176,7 @@ const HeroWithForm = () => {
                     required
                     value={formData.teamSize}
                     onChange={(e) => setFormData({...formData, teamSize: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer"
                   >
                     <option value="">Select team size</option>
                     <option value="1-10">1-10 people</option>
@@ -189,7 +189,7 @@ const HeroWithForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg"
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg"
                 >
                   {isSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -221,7 +221,7 @@ const HeroWithForm = () => {
               
               <div className="text-center mt-4">
                 <p className="text-xs text-gray-400">
-                  Looking to explore yourself? <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">Try Bolt free →</a>
+                  Looking to explore yourself? <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Try Bolt free →</a>
                 </p>
               </div>
             </div>
@@ -362,7 +362,7 @@ const ProductDemo = () => {
     <section id="demo" className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-4">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm mb-4">
             <Wand2 className="w-4 h-4 mr-2" />
             See the Magic
           </div>
@@ -384,7 +384,7 @@ const ProductDemo = () => {
                 onClick={() => setActiveTab(demo.id)}
                 className={`flex-1 px-6 py-4 text-sm font-medium transition-all flex items-center justify-center gap-2 ${
                   activeTab === demo.id
-                    ? 'bg-gray-800 text-white border-b-2 border-purple-500'
+                    ? 'bg-gray-800 text-white border-b-2 border-blue-500'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                 }`}
               >
@@ -409,16 +409,16 @@ const ProductDemo = () => {
                   </div>
 
                   <div className="flex items-center justify-center py-4">
-                    <div className="flex items-center space-x-2 text-purple-400">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-200"></div>
-                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-400"></div>
+                    <div className="flex items-center space-x-2 text-blue-400">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-200"></div>
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-400"></div>
                     </div>
                   </div>
 
                   <div>
                     <p className="text-gray-400 text-sm mb-3">Bolt creates:</p>
-                    <div className="bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-lg p-6 border border-purple-700/30">
+                    <div className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-lg p-6 border border-blue-700/30">
                       <div className="flex items-center justify-between mb-4">
                         <p className="text-white font-semibold">{demo.result}</p>
                         <div className="flex items-center space-x-2">
@@ -455,7 +455,7 @@ const ProductDemo = () => {
           </p>
           <div className="inline-flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center text-gray-400">
-              <MousePointer2 className="w-4 h-4 mr-2 text-purple-400" />
+              <MousePointer2 className="w-4 h-4 mr-2 text-blue-400" />
               Visual editing
             </div>
             <div className="flex items-center text-gray-400">
@@ -463,7 +463,7 @@ const ProductDemo = () => {
               Share instantly
             </div>
             <div className="flex items-center text-gray-400">
-              <MessageSquare className="w-4 h-4 mr-2 text-green-400" />
+              <MessageSquare className="w-4 h-4 mr-2 text-blue-400" />
               Gather feedback
             </div>
           </div>
@@ -484,17 +484,17 @@ const Stats = () => {
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-indigo-600/5"></div>
       <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300 group-hover:scale-110">
-                <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-blue-500/20 group-hover:to-indigo-500/20 transition-all duration-300 group-hover:scale-110">
+                <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
                   {stat.icon}
                 </div>
               </div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-indigo-400 transition-all">
                 {stat.value}
               </div>
               <div className="text-gray-400">
@@ -562,8 +562,8 @@ const EnterpriseFeatures = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 group hover:transform hover:scale-[1.02]">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-colors">
-                <div className="text-purple-400 group-hover:text-purple-300">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:from-blue-500/20 group-hover:to-indigo-500/20 transition-colors">
+                <div className="text-blue-400 group-hover:text-blue-300">
                   {feature.icon}
                 </div>
               </div>
@@ -623,7 +623,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-[1.02]">
               <div className="flex items-start mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">
                   {testimonial.avatar}
                 </div>
                 <div className="flex-1">
@@ -642,7 +642,7 @@ const Testimonials = () => {
                 <div className="text-sm text-gray-400">
                   {testimonial.role}
                 </div>
-                <div className="text-sm text-purple-400 mt-1">
+                <div className="text-sm text-blue-400 mt-1">
                   {testimonial.company}
                 </div>
               </div>
@@ -711,7 +711,7 @@ const FAQ = () => {
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left flex items-center justify-between group"
               >
-                <h3 className="text-lg font-semibold text-white group-hover:text-purple-400 transition-colors pr-4">
+                <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors pr-4">
                   {faq.question}
                 </h3>
                 <div className={`text-gray-400 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
@@ -733,7 +733,7 @@ const FAQ = () => {
           <p className="text-gray-400 mb-4">
             Have more questions?
           </p>
-          <a href="#form" className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors">
+          <a href="#form" className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
             Talk to our team
             <ArrowRight className="w-4 h-4 ml-2" />
           </a>
@@ -746,7 +746,7 @@ const FAQ = () => {
 // Final CTA Section
 const FinalCTA = () => {
   return (
-    <section className="py-24 bg-gradient-to-r from-purple-600 to-pink-600 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-r from-blue-600 to-indigo-600 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]"></div>
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
@@ -757,7 +757,7 @@ const FinalCTA = () => {
           Join thousands of product teams who are shipping better products, faster than ever before
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+          <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
             Start Free Trial
             <ArrowRight className="w-5 h-5 ml-2" />
           </a>
