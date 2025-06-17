@@ -19,7 +19,6 @@ module.exports = {
           700: '#1d4ed8',
           800: '#1e40af',
           900: '#1e3a8a',
-          950: '#172554'
         },
         dark: {
           50: '#000000',        // True black for that bolt.new feel
@@ -43,10 +42,13 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'monospace'],
       },
       animation: {
+        'bounce': 'bounce 2s infinite',
+        'pulse': 'pulse 2s infinite',
+        'scroll': 'scroll 1.5s ease-in-out infinite',
         'fade-in': 'fadeIn 0.6s ease-out',
         'slide-up': 'slideUp 0.8s ease-out',
         'slide-in-left': 'slideInLeft 0.8s ease-out',
