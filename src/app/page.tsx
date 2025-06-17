@@ -85,14 +85,14 @@ const HeroWithForm = () => {
 
             {/* Benefit-focused subheadline */}
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Deploy Bolt's AI development platform on your infrastructure. Ship production apps 10× faster with enterprise-grade security and compliance.
+              Deploy Bolt's AI development platform in your private cloud. Ship production apps 10× faster with enterprise-grade security and compliance.
             </p>
 
             {/* Key Benefits with Icons */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                <span>Run entirely in your environment - air-gapped support</span>
+                <span>Secure cloud deployment with data isolation</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
@@ -219,7 +219,7 @@ const HeroWithForm = () => {
                   </div>
                 </div>
                 <p className="text-center text-xs text-gray-500 mt-3">
-                  No credit card required • Deploy in your environment
+                  No credit card required • Private cloud deployment
                 </p>
               </div>
             </div>
@@ -495,9 +495,9 @@ const Stats = () => {
 const EnterpriseFeatures = () => {
   const features = [
     {
-      icon: <Server className="w-6 h-6" />,
-      title: 'On-Premise Deployment',
-      description: 'Run Bolt entirely in your infrastructure. Air-gapped environments supported.'
+      icon: <Cloud className="w-6 h-6" />,
+      title: 'Private Cloud Instance',
+      description: 'Dedicated cloud instance with complete data isolation and control.'
     },
     {
       icon: <Key className="w-6 h-6" />,
@@ -538,7 +538,7 @@ const EnterpriseFeatures = () => {
             Built for enterprise scale and security
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Deploy with confidence knowing your code, data, and IP never leave your environment
+            Deploy with confidence in your private cloud instance with complete data isolation
           </p>
         </div>
 
@@ -642,7 +642,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How does Bolt Enterprise ensure our code stays secure?",
-      answer: "Bolt Enterprise runs entirely within your infrastructure. No code, data, or prompts ever touch our servers. You can deploy in air-gapped environments and use your own LLM API keys for complete control."
+      answer: "Bolt Enterprise provides dedicated cloud instances with complete data isolation. No code, data, or prompts are shared between customers. You can use your own LLM API keys for complete control."
     },
     {
       question: "What makes Bolt different from GitHub Copilot or Cursor?",
@@ -712,10 +712,6 @@ const FinalCTA = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]"></div>
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm mb-6">
-          <Sparkles className="w-4 h-4 mr-2" />
-          Limited time offer: 3 months free for new enterprise customers
-        </div>
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
           Ready to transform how your team builds?
         </h2>
@@ -733,81 +729,10 @@ const FinalCTA = () => {
           </a>
         </div>
         <p className="text-sm text-white/70 mt-6">
-          No credit card required • Deploy in your environment • Cancel anytime
+          No credit card required • 30-day POC • Cancel anytime
         </p>
       </div>
     </section>
-  )
-}
-
-// Footer
-const Footer = () => {
-  return (
-    <footer className="py-16 bg-black border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <div className="flex items-center space-x-1 mb-4">
-              <Zap className="w-6 h-6 text-blue-500" />
-              <span className="text-lg font-bold text-white">bolt.new</span>
-            </div>
-            <p className="text-sm text-gray-400">
-              AI-powered development platform by StackBlitz
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
-            <ul className="space-y-2">
-              <li><Link href="/features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
-              <li><Link href="/pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
-              <li><Link href="/docs" className="text-gray-400 hover:text-white text-sm transition-colors">Documentation</Link></li>
-              <li><Link href="/api" className="text-gray-400 hover:text-white text-sm transition-colors">API</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">About</Link></li>
-              <li><Link href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link></li>
-              <li><Link href="/careers" className="text-gray-400 hover:text-white text-sm transition-colors">Careers</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-semibold mb-4">Legal & Security</h4>
-            <ul className="space-y-2">
-              <li><Link href="/security" className="text-gray-400 hover:text-white text-sm transition-colors">Security</Link></li>
-              <li><Link href="/compliance" className="text-gray-400 hover:text-white text-sm transition-colors">Compliance</Link></li>
-              <li><Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link></li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-6 mb-4 md:mb-0">
-            <div className="flex items-center text-xs text-gray-500">
-              <Shield className="w-4 h-4 mr-2 text-green-400" />
-              SOC 2 Type II Certified
-            </div>
-            <div className="flex items-center text-xs text-gray-500">
-              <Lock className="w-4 h-4 mr-2 text-blue-400" />
-              HIPAA Compliant
-            </div>
-            <div className="flex items-center text-xs text-gray-500">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-purple-400" />
-              ISO 27001
-            </div>
-          </div>
-          <div className="text-sm text-gray-400">
-            © 2024 StackBlitz, Inc. All rights reserved.
-          </div>
-        </div>
-      </div>
-    </footer>
   )
 }
 
@@ -824,7 +749,6 @@ export default function HomePage() {
       <Testimonials />
       <FAQ />
       <FinalCTA />
-      <Footer />
     </main>
   )
 } 
