@@ -645,6 +645,8 @@ const Testimonials = () => {
 
 // FAQ Section
 const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  
   const faqs = [
     {
       question: "How does Bolt Enterprise ensure our code stays secure?",
@@ -672,6 +674,10 @@ const FAQ = () => {
     }
   ]
 
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
   return (
     <section className="py-24 bg-black">
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
@@ -686,13 +692,28 @@ const FAQ = () => {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
-              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {faq.question}
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {faq.answer}
-              </p>
+            <div 
+              key={index} 
+              className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl border border-gray-800 hover:border-gray-700 transition-all duration-300 overflow-hidden"
+            >
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-6 py-5 text-left flex items-center justify-between group"
+              >
+                <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors pr-4">
+                  {faq.question}
+                </h3>
+                <div className={`text-gray-400 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </button>
+              <div className={`transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}>
+                <p className="px-6 pb-5 text-gray-400 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
             </div>
           ))}
         </div>
