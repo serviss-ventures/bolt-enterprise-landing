@@ -582,11 +582,11 @@ const Testimonials = () => {
       avatar: "SF"
     },
     {
-      quote: "Claude 3.5 Sonnet is the enabling technology that made this product possible. The combination with WebContainers is revolutionary.",
-      author: "Eric Simons",
-      role: "CEO & Co-founder",
-      company: "StackBlitz",
-      avatar: "ES"
+      quote: "We were able to build and deploy a complete SaaS application in minutes instead of weeks. The productivity gains for our engineering team have been incredible.",
+      author: "Marc Andre",
+      role: "Senior Developer",
+      company: "TechCorp",
+      avatar: "MA"
     }
   ]
 
