@@ -50,7 +50,7 @@ const HeroWithForm = () => {
     setIsSubmitting(true)
     // Simulate submission
     setTimeout(() => {
-      alert('Thank you! Our enterprise team will contact you within 24 hours.')
+      alert('Thank you for your interest! Our enterprise team will contact you within 24 hours to schedule your personalized demo.')
       setIsSubmitting(false)
       setFormData({ email: '', company: '', teamSize: '' })
     }, 2000)
@@ -132,10 +132,10 @@ const HeroWithForm = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 shadow-2xl">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Start Your Enterprise Trial
+                  Request a Demo
                 </h3>
                 <p className="text-gray-400">
-                  Get a personalized demo and 30-day POC
+                  See how Bolt can transform your development workflow
                 </p>
               </div>
 
@@ -195,7 +195,7 @@ const HeroWithForm = () => {
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                   ) : (
                     <>
-                      Contact Sales
+                      Request Demo
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
@@ -219,7 +219,13 @@ const HeroWithForm = () => {
                   </div>
                 </div>
                 <p className="text-center text-xs text-gray-500 mt-3">
-                  No credit card required • Private cloud deployment
+                  Response within 24 hours • Custom pricing available
+                </p>
+              </div>
+              
+              <div className="text-center mt-4">
+                <p className="text-xs text-gray-400">
+                  Looking for self-serve? <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">Try Bolt free →</a>
                 </p>
               </div>
             </div>
@@ -713,23 +719,23 @@ const FinalCTA = () => {
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to transform how your team builds?
+          Ready to see Bolt in action?
         </h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          Join the future of software development. Ship faster, with higher quality, at lower cost.
+          Schedule a personalized demo to see how your team can ship 10× faster
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-            Start Free Trial
+            Schedule Demo
             <ArrowRight className="w-5 h-5 ml-2" />
           </a>
-          <a href="#demo" className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all">
-            Watch Demo
+          <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all">
+            Try Bolt Now
             <ArrowRight className="w-5 h-5 ml-2" />
           </a>
         </div>
         <p className="text-sm text-white/70 mt-6">
-          No credit card required • 30-day POC • Cancel anytime
+          Custom enterprise pricing • Dedicated support • Training included
         </p>
       </div>
     </section>
