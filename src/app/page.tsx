@@ -330,7 +330,7 @@ const ProblemSolution = () => {
 
 // Product Demo Section
 const ProductDemo = () => {
-  const [activeTab, setActiveTab] = useState('prompt')
+  const [activeTab, setActiveTab] = useState('dashboard')
 
   const prompts = [
     {
@@ -354,12 +354,12 @@ const ProductDemo = () => {
   ]
 
   return (
-    <section className="py-24 bg-black">
+    <section id="demo" className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-4">
             <Sparkles className="w-4 h-4 mr-2" />
-            Live Demo
+            How It Works
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Natural language to production code
