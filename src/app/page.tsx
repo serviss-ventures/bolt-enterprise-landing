@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Users, Globe, Code, Lock, Check, Building2, Cloud, Sparkles, CheckCircle2, TrendingUp, Award, Timer } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Users, Globe, Code, Lock, Check, Building2, Cloud, Sparkles, CheckCircle2, TrendingUp, Award, Timer, Server, GitBranch, Activity, Database, Cpu, Key } from 'lucide-react'
 
 // Header Component - Minimal with no distracting CTAs
 const Header = () => {
@@ -21,11 +21,14 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-1 group">
-            <Zap className="w-7 h-7 text-blue-500" />
+            <Zap className="w-7 h-7 text-blue-500 group-hover:text-blue-400 transition-colors" />
             <span className="text-xl font-bold text-white">bolt.new</span>
             <span className="text-xs text-blue-400 ml-2 px-2 py-0.5 bg-blue-500/10 rounded-full border border-blue-500/20">
               Enterprise
             </span>
+          </div>
+          <div className="text-xs text-gray-500">
+            by StackBlitz
           </div>
         </div>
       </div>
@@ -47,8 +50,9 @@ const HeroWithForm = () => {
     setIsSubmitting(true)
     // Simulate submission
     setTimeout(() => {
-      alert('Thank you! We\'ll be in touch within 24 hours.')
+      alert('Thank you! Our enterprise team will contact you within 24 hours.')
       setIsSubmitting(false)
+      setFormData({ email: '', company: '', teamSize: '' })
     }, 2000)
   }
 
@@ -58,38 +62,49 @@ const HeroWithForm = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-blue-950">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.15),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(139,92,246,0.1),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIxMjEyMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
+            {/* Trust Badge */}
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm mb-6">
+              <Activity className="w-4 h-4 mr-2" />
+              Powering 50,000+ developers at Fortune 500 companies
+            </div>
+
             {/* Headline with clear value prop */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight pt-10">
-              Your AI dev team that
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+              Build full-stack apps with
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 block">
-                ships 10× faster
+                AI in your browser
               </span>
             </h1>
 
             {/* Benefit-focused subheadline */}
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Join Fortune 500 engineering teams using Bolt Enterprise to turn ideas into production apps in minutes, not months. Deploy securely on your infrastructure.
+              Deploy Bolt's AI development platform on your infrastructure. Ship production apps 10× faster with enterprise-grade security and compliance.
             </p>
 
             {/* Key Benefits with Icons */}
             <div className="space-y-3 mb-8">
               <div className="flex items-center text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                <span>Deploy on-premise or in your private cloud</span>
+                <span>Run entirely in your environment - air-gapped support</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                <span>SOC 2 Type II & HIPAA compliant</span>
+                <span>Use your own LLM API keys (OpenAI, Anthropic, Azure)</span>
               </div>
               <div className="flex items-center text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                <span>No code ever leaves your environment</span>
+                <span>WebContainers™ technology - no Docker required</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <CheckCircle2 className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                <span>SOC 2 Type II, HIPAA, and ISO 27001 compliant</span>
               </div>
             </div>
 
@@ -107,7 +122,7 @@ const HeroWithForm = () => {
                 ))}
               </div>
               <div className="text-sm text-gray-400">
-                <span className="text-white font-semibold">2,847 developers</span> from enterprise teams already onboard
+                <span className="text-white font-semibold">2,847 developers</span> from enterprise teams shipping faster
               </div>
             </div>
           </div>
@@ -117,10 +132,10 @@ const HeroWithForm = () => {
             <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl rounded-2xl p-8 border border-gray-700/50 shadow-2xl">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Get Started with Bolt Enterprise
+                  Start Your Enterprise Trial
                 </h3>
                 <p className="text-gray-400">
-                  Fill out the form to get in touch with our enterprise team.
+                  Get a personalized demo and 30-day POC
                 </p>
               </div>
 
@@ -161,7 +176,7 @@ const HeroWithForm = () => {
                     required
                     value={formData.teamSize}
                     onChange={(e) => setFormData({...formData, teamSize: e.target.value})}
-                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none"
+                    className="w-full px-4 py-3 bg-black/50 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all appearance-none cursor-pointer"
                   >
                     <option value="">Select team size</option>
                     <option value="10-50">10-50 developers</option>
@@ -174,7 +189,7 @@ const HeroWithForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-lg"
                 >
                   {isSubmitting ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -196,7 +211,11 @@ const HeroWithForm = () => {
                   </div>
                   <div className="flex items-center">
                     <Shield className="w-3 h-3 mr-1" />
-                    SOC 2 Compliant
+                    SOC 2 Type II
+                  </div>
+                  <div className="flex items-center">
+                    <Key className="w-3 h-3 mr-1" />
+                    HIPAA Compliant
                   </div>
                 </div>
                 <p className="text-center text-xs text-gray-500 mt-3">
@@ -213,7 +232,7 @@ const HeroWithForm = () => {
 
 // Trust Logos Section
 const TrustLogos = () => {
-  const companies = ['Google', 'Microsoft', 'Amazon', 'Meta', 'Apple', 'Netflix', 'Salesforce', 'Adobe']
+  const companies = ['Google', 'Microsoft', 'Amazon', 'Meta', 'Shopify', 'Netflix', 'Salesforce', 'Adobe']
   
   return (
     <section className="py-16 bg-black/50 border-y border-gray-800">
@@ -221,10 +240,10 @@ const TrustLogos = () => {
         <p className="text-center text-gray-500 text-sm mb-8 uppercase tracking-wider">
           Trusted by engineering teams at
         </p>
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center opacity-50">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-8 items-center">
           {companies.map((company) => (
-            <div key={company} className="text-center text-gray-400 hover:text-white transition-colors cursor-pointer">
-              {company}
+            <div key={company} className="text-center text-gray-600 hover:text-white transition-all duration-300 cursor-pointer transform hover:scale-110">
+              <div className="text-lg font-semibold">{company}</div>
             </div>
           ))}
         </div>
@@ -240,66 +259,66 @@ const ProblemSolution = () => {
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            The old way is broken
+            Your developers deserve better
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Traditional development is slow, expensive, and frustrating. Your backlog keeps growing while your team struggles with repetitive tasks.
+            Stop wasting talent on boilerplate. Let AI handle the repetitive work while your team focuses on what matters.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Old Way */}
-          <div className="bg-red-950/20 rounded-2xl p-8 border border-red-900/30">
+          <div className="bg-red-950/20 rounded-2xl p-8 border border-red-900/30 transform hover:scale-[1.02] transition-all">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-red-400 text-xl">✗</span>
               </div>
-              <h3 className="text-xl font-semibold text-white ml-3">The Old Way</h3>
+              <h3 className="text-xl font-semibold text-white ml-3">Without Bolt</h3>
             </div>
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-start">
                 <span className="text-red-400 mr-2">•</span>
-                Months to ship simple features
+                Weeks spent on initial setup and configuration
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-2">•</span>
-                Developers stuck on boilerplate code
+                Senior devs stuck writing CRUD operations
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-2">•</span>
-                Security reviews slow everything down
+                Complex local environment requirements
               </li>
               <li className="flex items-start">
                 <span className="text-red-400 mr-2">•</span>
-                Massive technical debt accumulation
+                Security reviews block every deployment
               </li>
             </ul>
           </div>
 
           {/* New Way */}
-          <div className="bg-green-950/20 rounded-2xl p-8 border border-green-900/30">
+          <div className="bg-green-950/20 rounded-2xl p-8 border border-green-900/30 transform hover:scale-[1.02] transition-all">
             <div className="flex items-center mb-4">
               <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
                 <span className="text-green-400 text-xl">✓</span>
               </div>
-              <h3 className="text-xl font-semibold text-white ml-3">The Bolt Way</h3>
+              <h3 className="text-xl font-semibold text-white ml-3">With Bolt Enterprise</h3>
             </div>
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start">
                 <span className="text-green-400 mr-2">•</span>
-                Ship production apps in minutes
+                Full-stack apps generated from descriptions
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-2">•</span>
-                AI handles all the repetitive work
+                Developers focus on business logic only
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-2">•</span>
-                Pre-approved security compliance
+                Zero setup - runs entirely in the browser
               </li>
               <li className="flex items-start">
                 <span className="text-green-400 mr-2">•</span>
-                Clean, maintainable code every time
+                Pre-approved, compliant deployments
               </li>
             </ul>
           </div>
@@ -313,19 +332,40 @@ const ProblemSolution = () => {
 const ProductDemo = () => {
   const [activeTab, setActiveTab] = useState('prompt')
 
+  const prompts = [
+    {
+      id: 'dashboard',
+      title: 'Analytics Dashboard',
+      prompt: 'Create a real-time analytics dashboard with charts, KPIs, and data filtering',
+      tech: 'React • TypeScript • Recharts • Tailwind'
+    },
+    {
+      id: 'api',
+      title: 'REST API',
+      prompt: 'Build a secure REST API with authentication, rate limiting, and PostgreSQL',
+      tech: 'Node.js • Express • JWT • Prisma'
+    },
+    {
+      id: 'app',
+      title: 'Full-Stack App',
+      prompt: 'Generate a complete SaaS application with billing, auth, and admin panel',
+      tech: 'Next.js • Stripe • Supabase • shadcn/ui'
+    }
+  ]
+
   return (
     <section className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-12">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm mb-4">
             <Sparkles className="w-4 h-4 mr-2" />
-            See it in action
+            Live Demo
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            From idea to production in 3 steps
+            Natural language to production code
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Watch how enterprise teams ship faster than ever before
+            See how Bolt transforms simple prompts into complete, deployable applications
           </p>
         </div>
 
@@ -333,85 +373,82 @@ const ProductDemo = () => {
         <div className="bg-gray-900/50 rounded-2xl border border-gray-800 overflow-hidden">
           {/* Tab Navigation */}
           <div className="flex border-b border-gray-800">
-            {[
-              { id: 'prompt', label: '1. Describe', icon: '💭' },
-              { id: 'generate', label: '2. Generate', icon: '⚡' },
-              { id: 'deploy', label: '3. Deploy', icon: '🚀' }
-            ].map((tab) => (
+            {prompts.map((prompt) => (
               <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                key={prompt.id}
+                onClick={() => setActiveTab(prompt.id)}
                 className={`flex-1 px-6 py-4 text-sm font-medium transition-all ${
-                  activeTab === tab.id
+                  activeTab === prompt.id
                     ? 'bg-gray-800 text-white border-b-2 border-blue-500'
                     : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
                 }`}
               >
-                <span className="mr-2">{tab.icon}</span>
-                {tab.label}
+                {prompt.title}
               </button>
             ))}
           </div>
 
           {/* Tab Content */}
           <div className="p-8">
-            {activeTab === 'prompt' && (
-              <div className="space-y-4">
-                <p className="text-gray-300">Simply describe what you want to build:</p>
-                <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
-                  <p className="text-white font-mono">
-                    "Build a customer dashboard with real-time analytics, user management, and Stripe billing integration"
-                  </p>
-                </div>
-                <p className="text-sm text-gray-500">
-                  Natural language • No technical specs needed • Works with your existing stack
-                </p>
-              </div>
-            )}
-
-            {activeTab === 'generate' && (
-              <div className="space-y-4">
-                <p className="text-gray-300">Bolt instantly generates your complete application:</p>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div className="text-2xl mb-2">⚡</div>
-                    <div className="text-white font-semibold">0.3s</div>
-                    <div className="text-gray-400 text-sm">Generation time</div>
-                  </div>
-                  <div className="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div className="text-2xl mb-2">📁</div>
-                    <div className="text-white font-semibold">147</div>
-                    <div className="text-gray-400 text-sm">Files created</div>
-                  </div>
-                  <div className="bg-gray-800/50 rounded-lg p-4 text-center">
-                    <div className="text-2xl mb-2">✅</div>
-                    <div className="text-white font-semibold">100%</div>
-                    <div className="text-gray-400 text-sm">Test coverage</div>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'deploy' && (
-              <div className="space-y-4">
-                <p className="text-gray-300">Deploy instantly to your infrastructure:</p>
-                <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 rounded-lg p-6 border border-green-800/30">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse mr-3"></div>
-                      <span className="text-white font-medium">Deployed to production</span>
+            {prompts.map((prompt) => (
+              activeTab === prompt.id && (
+                <div key={prompt.id} className="space-y-6">
+                  <div>
+                    <p className="text-gray-400 text-sm mb-3">Prompt:</p>
+                    <div className="bg-black/50 rounded-lg p-4 border border-gray-700">
+                      <p className="text-white font-mono text-sm">
+                        "{prompt.prompt}"
+                      </p>
                     </div>
-                    <span className="text-green-400 text-sm">Live</span>
                   </div>
-                  <div className="text-sm text-gray-400">
-                    • Kubernetes cluster: prod-us-east-1<br />
-                    • Auto-scaling enabled<br />
-                    • SSL certificates configured<br />
-                    • Monitoring & alerts active
+
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-gray-800/50 rounded-lg p-4 text-center border border-gray-700/50">
+                      <div className="text-2xl mb-2">⚡</div>
+                      <div className="text-white font-semibold">0.8s</div>
+                      <div className="text-gray-400 text-sm">Generation time</div>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-4 text-center border border-gray-700/50">
+                      <div className="text-2xl mb-2">📁</div>
+                      <div className="text-white font-semibold">Ready</div>
+                      <div className="text-gray-400 text-sm">To deploy</div>
+                    </div>
+                    <div className="bg-gray-800/50 rounded-lg p-4 text-center border border-gray-700/50">
+                      <div className="text-2xl mb-2">🛠️</div>
+                      <div className="text-white font-semibold">100%</div>
+                      <div className="text-gray-400 text-sm">Customizable</div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gray-800/30 rounded-lg p-3 text-center">
+                    <p className="text-sm text-gray-400">
+                      Tech stack: <span className="text-blue-400">{prompt.tech}</span>
+                    </p>
                   </div>
                 </div>
-              </div>
-            )}
+              )
+            ))}
+          </div>
+        </div>
+
+        {/* Code Example */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-500 mb-4">
+            All code runs in secure WebContainers™ - no local setup required
+          </p>
+          <div className="inline-flex items-center space-x-6 text-sm">
+            <div className="flex items-center text-gray-400">
+              <Server className="w-4 h-4 mr-2 text-green-400" />
+              Node.js runtime
+            </div>
+            <div className="flex items-center text-gray-400">
+              <Database className="w-4 h-4 mr-2 text-blue-400" />
+              Database support
+            </div>
+            <div className="flex items-center text-gray-400">
+              <GitBranch className="w-4 h-4 mr-2 text-purple-400" />
+              Git integration
+            </div>
           </div>
         </div>
       </div>
@@ -422,24 +459,25 @@ const ProductDemo = () => {
 // Stats Section
 const Stats = () => {
   const stats = [
-    { value: '90%', label: 'Faster deployment', icon: <TrendingUp className="w-6 h-6" /> },
-    { value: '$2.3M', label: 'Average saved per year', icon: <Award className="w-6 h-6" /> },
-    { value: '10x', label: 'Developer productivity', icon: <Zap className="w-6 h-6" /> },
-    { value: '0ms', label: 'Network latency', icon: <Timer className="w-6 h-6" /> }
+    { value: '10×', label: 'Faster deployment', icon: <TrendingUp className="w-6 h-6" /> },
+    { value: '$2.3M', label: 'Average annual savings', icon: <Award className="w-6 h-6" /> },
+    { value: '90%', label: 'Less time on boilerplate', icon: <Timer className="w-6 h-6" /> },
+    { value: '100%', label: 'Code ownership', icon: <Shield className="w-6 h-6" /> }
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-      <div className="max-w-6xl mx-auto px-6 lg:px-12">
+    <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/20 transition-colors">
-                <div className="text-blue-400">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-all duration-300 group-hover:scale-110">
+                <div className="text-blue-400 group-hover:text-blue-300 transition-colors">
                   {stat.icon}
                 </div>
               </div>
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
                 {stat.value}
               </div>
               <div className="text-gray-400">
@@ -453,26 +491,38 @@ const Stats = () => {
   )
 }
 
-// Testimonials Section
-const Testimonials = () => {
-  const testimonials = [
+// Enterprise Features Section
+const EnterpriseFeatures = () => {
+  const features = [
     {
-      quote: "StackBlitz unlocks a true one-click startup experience with the full stack running in the browser—it's a game-changer.",
-      author: "Ilya Grigorik",
-      role: "Principal Engineer",
-      company: "Shopify"
+      icon: <Server className="w-6 h-6" />,
+      title: 'On-Premise Deployment',
+      description: 'Run Bolt entirely in your infrastructure. Air-gapped environments supported.'
     },
     {
-      quote: "Being able to instantly open and share environments has significantly reduced our team's support burden for bug reproductions and enabled rapid innovation.",
-      author: "Stephen Fluin",
-      role: "Developer Relations Lead",
-      company: "Google"
+      icon: <Key className="w-6 h-6" />,
+      title: 'Your Own LLM Keys',
+      description: 'Use your existing OpenAI, Anthropic, or Azure OpenAI API keys.'
     },
     {
-      quote: "Claude 3.5 Sonnet is the enabling technology that made this product possible, period.",
-      author: "Eric Simons",
-      role: "CEO & Co-founder",
-      company: "StackBlitz"
+      icon: <Shield className="w-6 h-6" />,
+      title: 'Enterprise Security',
+      description: 'SOC 2 Type II, HIPAA, and ISO 27001 compliant. SSO and RBAC included.'
+    },
+    {
+      icon: <GitBranch className="w-6 h-6" />,
+      title: 'Git Integration',
+      description: 'Direct integration with GitHub Enterprise, GitLab, and Bitbucket.'
+    },
+    {
+      icon: <Database className="w-6 h-6" />,
+      title: 'Database Support',
+      description: 'Connect to PostgreSQL, MySQL, MongoDB, Redis, and more.'
+    },
+    {
+      icon: <Cpu className="w-6 h-6" />,
+      title: 'Custom Models',
+      description: 'Fine-tune AI models on your codebase and coding standards.'
     }
   ]
 
@@ -480,23 +530,92 @@ const Testimonials = () => {
     <section className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm mb-4">
+            <Building2 className="w-4 h-4 mr-2" />
+            Enterprise Ready
+          </div>
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Loved by enterprise engineering teams
+            Built for enterprise scale and security
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Deploy with confidence knowing your code, data, and IP never leave your environment
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 group hover:transform hover:scale-[1.02]">
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:from-blue-500/20 group-hover:to-purple-500/20 transition-colors">
+                <div className="text-blue-400 group-hover:text-blue-300">
+                  {feature.icon}
+                </div>
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// Testimonials Section
+const Testimonials = () => {
+  const testimonials = [
+    {
+      quote: "StackBlitz unlocks a true one-click startup experience with the full stack running in the browser—it's a game-changer for developer productivity.",
+      author: "Ilya Grigorik",
+      role: "Principal Engineer",
+      company: "Shopify",
+      avatar: "IG"
+    },
+    {
+      quote: "Being able to instantly open and share environments has significantly reduced our team's support burden for bug reproductions and enabled rapid innovation.",
+      author: "Stephen Fluin",
+      role: "Developer Relations Lead",
+      company: "Google",
+      avatar: "SF"
+    },
+    {
+      quote: "Claude 3.5 Sonnet is the enabling technology that made this product possible. The combination with WebContainers is revolutionary.",
+      author: "Eric Simons",
+      role: "CEO & Co-founder",
+      company: "StackBlitz",
+      avatar: "ES"
+    }
+  ]
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+      <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Trusted by industry leaders
           </h2>
           <p className="text-xl text-gray-400">
-            See why the world's best teams choose Bolt
+            See why the world's best engineering teams choose Bolt
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-400">★</span>
-                ))}
+            <div key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:transform hover:scale-[1.02]">
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">
+                  {testimonial.avatar}
+                </div>
+                <div className="flex-1">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400">★</span>
+                  ))}
+                </div>
               </div>
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg">
+              <p className="text-gray-300 mb-6 leading-relaxed">
                 "{testimonial.quote}"
               </p>
               <div className="border-t border-gray-800 pt-6">
@@ -522,25 +641,33 @@ const Testimonials = () => {
 const FAQ = () => {
   const faqs = [
     {
-      question: "How does Bolt Enterprise ensure security?",
-      answer: "Bolt runs entirely in your environment—no code ever touches our servers. We're SOC 2 Type II certified and support air-gapped deployments for maximum security."
+      question: "How does Bolt Enterprise ensure our code stays secure?",
+      answer: "Bolt Enterprise runs entirely within your infrastructure. No code, data, or prompts ever touch our servers. You can deploy in air-gapped environments and use your own LLM API keys for complete control."
     },
     {
-      question: "What about our existing codebase?",
-      answer: "Bolt seamlessly integrates with your existing stack. It can work with your design systems, internal APIs, and follows your coding standards automatically."
+      question: "What makes Bolt different from GitHub Copilot or Cursor?",
+      answer: "Unlike code completion tools, Bolt generates entire full-stack applications from natural language. It includes a complete browser-based development environment with WebContainers™ technology - no local setup required."
     },
     {
       question: "How quickly can we see ROI?",
-      answer: "Most teams see 10x productivity gains within the first sprint. The average enterprise saves $2.3M in the first year through reduced development time and fewer bugs."
+      answer: "Most teams see 10× productivity gains within the first sprint. The average enterprise saves $2.3M annually through reduced development time, fewer bugs, and faster time-to-market."
     },
     {
-      question: "What kind of support do you provide?",
-      answer: "Enterprise customers get 24/7 dedicated support, custom onboarding, and a dedicated success manager to ensure smooth adoption across your organization."
+      question: "Does Bolt work with our existing tech stack?",
+      answer: "Yes. Bolt supports all major frameworks (React, Vue, Angular, Next.js, etc.) and can integrate with your existing APIs, databases, and design systems. It adapts to your coding standards automatically."
+    },
+    {
+      question: "What kind of support do we get?",
+      answer: "Enterprise customers receive 24/7 dedicated support, custom onboarding, a dedicated success manager, and priority feature requests. We also provide training for your entire engineering team."
+    },
+    {
+      question: "Can we customize the AI models?",
+      answer: "Yes. Enterprise customers can fine-tune models on their codebase, ensuring generated code follows your specific patterns, conventions, and best practices."
     }
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-b from-black to-gray-900">
+    <section className="py-24 bg-black">
       <div className="max-w-4xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
@@ -551,10 +678,10 @@ const FAQ = () => {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-gray-900/50 rounded-xl p-6 border border-gray-800">
-              <h3 className="text-lg font-semibold text-white mb-3">
+            <div key={index} className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
+              <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-blue-400 transition-colors">
                 {faq.question}
               </h3>
               <p className="text-gray-400 leading-relaxed">
@@ -562,6 +689,16 @@ const FAQ = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <p className="text-gray-400 mb-4">
+            Have more questions?
+          </p>
+          <a href="#form" className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+            Talk to our enterprise team
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </a>
         </div>
       </div>
     </section>
@@ -572,18 +709,29 @@ const FAQ = () => {
 const FinalCTA = () => {
   return (
     <section className="py-24 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')]"></div>
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
+        <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm mb-6">
+          <Sparkles className="w-4 h-4 mr-2" />
+          Limited time offer: 3 months free for new enterprise customers
+        </div>
         <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-          Ready to 10x your development speed?
+          Ready to transform how your team builds?
         </h2>
-        <p className="text-xl text-white/90 mb-8">
-          Join the enterprises shipping faster with Bolt.
+        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          Join the future of software development. Ship faster, with higher quality, at lower cost.
         </p>
-        <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105">
-          Get Started
-          <ArrowRight className="w-5 h-5 ml-2" />
-        </a>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#form" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+            Start Free Trial
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
+          <a href="#demo" className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-lg hover:bg-white/20 transition-all">
+            Watch Demo
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </a>
+        </div>
         <p className="text-sm text-white/70 mt-6">
           No credit card required • Deploy in your environment • Cancel anytime
         </p>
@@ -595,24 +743,67 @@ const FinalCTA = () => {
 // Footer
 const Footer = () => {
   return (
-    <footer className="py-12 bg-black border-t border-gray-800">
+    <footer className="py-16 bg-black border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-1 mb-4 md:mb-0">
-            <Zap className="w-6 h-6 text-blue-500" />
-            <span className="text-lg font-bold text-white">bolt.new</span>
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div className="flex items-center space-x-1 mb-4">
+              <Zap className="w-6 h-6 text-blue-500" />
+              <span className="text-lg font-bold text-white">bolt.new</span>
+            </div>
+            <p className="text-sm text-gray-400">
+              AI-powered development platform by StackBlitz
+            </p>
           </div>
-          <div className="flex items-center space-x-8 text-sm text-gray-400">
-            <Link href="/security" className="hover:text-white transition-colors">
-              Security
-            </Link>
-            <Link href="/compliance" className="hover:text-white transition-colors">
-              Compliance
-            </Link>
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy
-            </Link>
-            <span>© 2024 StackBlitz</span>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-4">Product</h4>
+            <ul className="space-y-2">
+              <li><Link href="/features" className="text-gray-400 hover:text-white text-sm transition-colors">Features</Link></li>
+              <li><Link href="/pricing" className="text-gray-400 hover:text-white text-sm transition-colors">Pricing</Link></li>
+              <li><Link href="/docs" className="text-gray-400 hover:text-white text-sm transition-colors">Documentation</Link></li>
+              <li><Link href="/api" className="text-gray-400 hover:text-white text-sm transition-colors">API</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-4">Company</h4>
+            <ul className="space-y-2">
+              <li><Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">About</Link></li>
+              <li><Link href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link></li>
+              <li><Link href="/careers" className="text-gray-400 hover:text-white text-sm transition-colors">Careers</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-white font-semibold mb-4">Legal & Security</h4>
+            <ul className="space-y-2">
+              <li><Link href="/security" className="text-gray-400 hover:text-white text-sm transition-colors">Security</Link></li>
+              <li><Link href="/compliance" className="text-gray-400 hover:text-white text-sm transition-colors">Compliance</Link></li>
+              <li><Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center space-x-6 mb-4 md:mb-0">
+            <div className="flex items-center text-xs text-gray-500">
+              <Shield className="w-4 h-4 mr-2 text-green-400" />
+              SOC 2 Type II Certified
+            </div>
+            <div className="flex items-center text-xs text-gray-500">
+              <Lock className="w-4 h-4 mr-2 text-blue-400" />
+              HIPAA Compliant
+            </div>
+            <div className="flex items-center text-xs text-gray-500">
+              <CheckCircle2 className="w-4 h-4 mr-2 text-purple-400" />
+              ISO 27001
+            </div>
+          </div>
+          <div className="text-sm text-gray-400">
+            © 2024 StackBlitz, Inc. All rights reserved.
           </div>
         </div>
       </div>
@@ -622,13 +813,14 @@ const Footer = () => {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black" id="form">
+    <main className="min-h-screen bg-black">
       <Header />
       <HeroWithForm />
       <TrustLogos />
       <ProblemSolution />
       <ProductDemo />
       <Stats />
+      <EnterpriseFeatures />
       <Testimonials />
       <FAQ />
       <FinalCTA />
