@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Zap, Shield, Users, Globe, Code, Cpu, Lock, Play, ChevronRight, Check, Building2, Cloud } from 'lucide-react'
+import { ArrowRight, Zap, Shield, Users, Globe, Code, Cpu, Lock, Play, ChevronRight, Check, Building2, Cloud, Sparkles } from 'lucide-react'
 
 // Minimal Header Component
 const Header = () => {
@@ -20,11 +20,10 @@ const Header = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-1">
-            <Zap className="w-8 h-8 text-blue-500" />
-            <span className="text-2xl font-bold text-white">bolt.new</span>
-            <span className="text-2xl text-white/60">/enterprise</span>
+          {/* Logo - Simplified without /enterprise */}
+          <div className="flex items-center space-x-1 group">
+            <Zap className="w-8 h-8 text-blue-500 group-hover:text-blue-400 transition-colors" />
+            <span className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">bolt.new</span>
           </div>
 
           {/* Simple CTAs */}
@@ -79,9 +78,9 @@ const Hero = () => {
               Schedule Enterprise Demo
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-white/30 transition-all backdrop-blur-sm">
-              Watch 2-min Overview
-            </button>
+            <a href="#demo" className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg border border-white/20 hover:border-white/30 transition-all backdrop-blur-sm">
+              Try Interactive Demo
+            </a>
           </div>
 
           {/* Trusted By */}
@@ -110,7 +109,7 @@ const Hero = () => {
   )
 }
 
-// Key Features Section
+// Key Features Section with Cleaner Cards
 const Features = () => {
   const features = [
     {
@@ -157,23 +156,20 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <div key={index} className="group relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
-                <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <div className="text-blue-400">
-                    {feature.icon}
-                  </div>
+            <div key={index} className="group p-8 bg-gray-900/50 rounded-2xl border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:bg-gray-900/80">
+              <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600/30 transition-colors">
+                <div className="text-blue-400">
+                  {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
               </div>
+              <h3 className="text-xl font-semibold text-white mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-gray-400 leading-relaxed">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
@@ -182,34 +178,146 @@ const Features = () => {
   )
 }
 
-// Demo Section
-const DemoSection = () => {
+// Interactive Demo Section
+const InteractiveDemo = () => {
+  const [activePrompt, setActivePrompt] = useState('')
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [showResult, setShowResult] = useState(false)
+  
+  const demoPrompts = [
+    {
+      title: "Dashboard Analytics",
+      prompt: "Create a real-time analytics dashboard with charts",
+      icon: "📊"
+    },
+    {
+      title: "Team Management",
+      prompt: "Build a team management app with roles and permissions",
+      icon: "👥"
+    },
+    {
+      title: "API Integration",
+      prompt: "Generate a REST API with authentication and rate limiting",
+      icon: "🔌"
+    }
+  ]
+
+  const handleGenerate = (prompt: string) => {
+    setActivePrompt(prompt)
+    setIsGenerating(true)
+    setShowResult(false)
+    
+    setTimeout(() => {
+      setIsGenerating(false)
+      setShowResult(true)
+    }, 2000)
+  }
+
   return (
-    <section className="py-24 bg-black">
+    <section id="demo" className="py-24 bg-black">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-            See it in action
+            Experience the magic
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Watch how Fortune 500 companies build internal tools 10× faster
+            See how natural language transforms into production-ready applications
           </p>
         </div>
 
-        {/* Video Placeholder */}
-        <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-white/10">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <button className="group px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full flex items-center space-x-3 transition-all hover:scale-110">
-              <Play className="w-6 h-6 text-white" />
-              <span className="text-white font-medium">Watch Demo</span>
-            </button>
+        {/* Interactive Demo UI */}
+        <div className="bg-gray-900/50 rounded-3xl border border-gray-800 overflow-hidden">
+          {/* Browser Chrome */}
+          <div className="flex items-center justify-between px-6 py-4 bg-gray-900/80 border-b border-gray-800">
+            <div className="flex items-center space-x-3">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+            </div>
+            <div className="flex-1 max-w-md mx-6">
+              <div className="bg-black/50 rounded-lg px-4 py-2 text-sm text-gray-400 font-mono">
+                bolt.new
+              </div>
+            </div>
           </div>
-          
-          {/* Fake UI elements for visual interest */}
-          <div className="absolute top-4 left-4 flex space-x-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+
+          {/* Demo Content */}
+          <div className="p-8 lg:p-12">
+            <div className="mb-8">
+              <h3 className="text-lg font-semibold text-white mb-4">Choose a demo prompt:</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                {demoPrompts.map((demo, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleGenerate(demo.prompt)}
+                    className={`p-4 rounded-xl border transition-all duration-300 text-left ${
+                      activePrompt === demo.prompt 
+                        ? 'bg-blue-600/20 border-blue-500 text-white' 
+                        : 'bg-gray-800/50 border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-gray-600'
+                    }`}
+                  >
+                    <div className="text-2xl mb-2">{demo.icon}</div>
+                    <div className="font-medium">{demo.title}</div>
+                    <div className="text-sm opacity-70 mt-1">{demo.prompt}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Prompt Display */}
+            {activePrompt && (
+              <div className="mb-8">
+                <div className="bg-black/50 rounded-xl p-6 border border-gray-800">
+                  <div className="flex items-start space-x-3">
+                    <Sparkles className="w-5 h-5 text-blue-400 mt-1" />
+                    <div className="flex-1">
+                      <div className="text-gray-400 text-sm mb-2">AI Prompt:</div>
+                      <div className="text-white text-lg">{activePrompt}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Generation Animation */}
+            {isGenerating && (
+              <div className="flex items-center justify-center py-12">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse delay-100"></div>
+                  <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse delay-200"></div>
+                </div>
+                <span className="ml-4 text-gray-400">Generating your application...</span>
+              </div>
+            )}
+
+            {/* Result Preview */}
+            {showResult && !isGenerating && (
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-gray-400">Application ready</span>
+                  </div>
+                  <div className="flex space-x-2">
+                    <button className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-lg text-sm hover:bg-blue-600/30 transition-colors">
+                      View Code
+                    </button>
+                    <button className="px-3 py-1 bg-green-600/20 text-green-400 rounded-lg text-sm hover:bg-green-600/30 transition-colors">
+                      Deploy
+                    </button>
+                  </div>
+                </div>
+                <div className="aspect-video bg-black/50 rounded-lg flex items-center justify-center">
+                  <div className="text-gray-500">
+                    <Code className="w-12 h-12 mx-auto mb-3" />
+                    <p>Full application generated and running</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -233,7 +341,7 @@ const DemoSection = () => {
   )
 }
 
-// Enterprise Benefits
+// Enterprise Benefits with Cleaner Cards
 const Benefits = () => {
   const benefits = [
     {
@@ -270,8 +378,8 @@ const Benefits = () => {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-              <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6">
+            <div key={index} className="bg-gray-900/50 rounded-2xl p-8 border border-gray-800 hover:border-gray-700 transition-all">
+              <div className="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6">
                 <div className="text-blue-400">
                   {benefit.icon}
                 </div>
@@ -332,7 +440,6 @@ const Footer = () => {
           <div className="flex items-center space-x-1 mb-4 md:mb-0">
             <Zap className="w-6 h-6 text-blue-500" />
             <span className="text-lg font-bold text-white">bolt.new</span>
-            <span className="text-lg text-white/60">/enterprise</span>
           </div>
           <div className="flex items-center space-x-6 text-sm text-gray-400">
             <Link href="mailto:enterprise@bolt.new" className="hover:text-white transition-colors">
@@ -358,7 +465,7 @@ export default function HomePage() {
       <Header />
       <Hero />
       <Features />
-      <DemoSection />
+      <InteractiveDemo />
       <Benefits />
       <CTA />
       <Footer />
